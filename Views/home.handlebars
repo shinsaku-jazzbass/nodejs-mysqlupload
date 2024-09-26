@@ -1,0 +1,51 @@
+{{!<h1>Hello Template Engine!!</h1>}}
+
+
+<li>
+
+</li>
+<form action="/" method="post" enctype="multipart/form-data">
+<h3>画像をアップロード</h3>
+<input type="file" name="imageFile" accept="image/*" />
+<input type="text" name="memo" size="20" />
+<input type="submit" />
+</form>
+
+<div>
+    <P>保存された画像が表示されます。↓↓</P>
+                    <p>{{memo}}</p>
+    {{#if img2}}
+    <img src="{{img}}" width="200" />
+    {{/if}}
+    {{#if img3}}
+    <a href="{{img}}" target="blank">{{img}}</a>
+    {{/if}}
+    {{#if img4}}
+    <p>データアップロード無し</p>
+    {{/if}}
+    <p>登録済データ</p>
+    <table class="table table-striped">
+          <thead>
+    <tr>
+      <th scope="col">メモ</th>
+      <th scope="col">投稿画像</th>
+    </tr>
+  </thead>
+    {{#each rows}}
+    <tr>
+        <td>
+        <p>{{this.memo}}</p>
+        </td>
+        <td>
+        {{#if this.ku}}
+        <a href="{{this.imageName}}" target="blank">{{this.imageName}}</a>
+        {{else}}
+        <img src="{{this.imageName}}" width="200" />
+        {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+    </table>
+
+
+</div>
