@@ -31,23 +31,23 @@ const pool = mysql.createPool({
     database: "test_db",
 });
 
-
+pool.getConnection((err,connection) =>{
+    if(err) throw err
+    console.log("mysqlに接続されました。");
+    connection.query("SELECT * FROM image ORDER BY id DESC",(err,rows) =>{
+        connection.release();
+        //console.log(rows);
+        if(!err){
+            rowsarr = rows;
+        }
+    })
+});
 
 
 
 
 app.get('/', (req, res) => {
-    pool.getConnection((err,connection) =>{
-        if(err) throw err
-        console.log("mysqlに接続されました。");
-        connection.query("SELECT * FROM image ORDER BY id DESC",(err,rows) =>{
-            connection.release();
-            //console.log(rows);
-            if(!err){
-                rowsarr = rows;
-            }
-        })
-    });
+
     console.log(rowsarr);
     if(imgData != '' & fileextension == '.jpg'){
         res.render('home',{
