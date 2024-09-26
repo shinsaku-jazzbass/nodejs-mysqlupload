@@ -14,6 +14,7 @@ let fileextension = '';
 let rowsarr =  [];
 
 app.use(express.static("upload"));
+app.use(express.static("public"));
 
 app.use(fileUpload());
 

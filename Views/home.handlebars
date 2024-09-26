@@ -1,17 +1,33 @@
 {{!<h1>Hello Template Engine!!</h1>}}
 
-
-<li>
-
-</li>
-<form action="/" method="post" enctype="multipart/form-data">
 <h3>画像をアップロード</h3>
-<input type="file" name="imageFile" accept="image/*" />
-<input type="text" name="memo" size="20" />
-<input type="submit" />
-</form>
+
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item list-group-item-secondary flex-fill "><a href="./" class="align-middle">Home Page</a></li>
+        <li class="list-group-item list-group-item-secondary flex-fill"><a href="./home2" class="link-underline-light">Profile</a></li>
+        <li class="list-group-item list-group-item-secondary flex-fill"><a href="./about" class="link-underline-light">About Us</a></li>
+      </ul>
 
 <div>
+    <table class="table">
+        <tr>
+            <td>
+                <form action="/" method="post" enctype="multipart/form-data">
+
+                <input type="file" name="imageFile" accept="image/*" />
+                <input type="text" name="memo" size="20" />
+                <input type="submit" />
+                </form>
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+<div>
+
     <P>保存された画像が表示されます。↓↓</P>
                     <p>{{memo}}</p>
     {{#if img2}}
@@ -24,7 +40,7 @@
     <p>データアップロード無し</p>
     {{/if}}
     <p>登録済データ</p>
-    <table class="table table-striped">
+    <table class="table">
           <thead>
     <tr>
       <th scope="col">メモ</th>
@@ -34,7 +50,7 @@
     {{#each rows}}
     <tr>
         <td>
-        <p>{{this.memo}}</p>
+        <p class="memo">{{this.memo}}</p>
         </td>
         <td>
         {{#if this.ku}}
