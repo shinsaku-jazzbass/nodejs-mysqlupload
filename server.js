@@ -3,6 +3,7 @@ const { engine } = require('express-handlebars');
 const fileUpload = require('express-fileupload');
 const app = express();
 const mysql = require("mysql");
+//拡張子取得の為install
 const path = require("path");
 
 
@@ -14,6 +15,7 @@ let fileextension = '';
 let rowsarr =  [];
 
 app.use(express.static("upload"));
+//
 app.use(express.static("public"));
 
 app.use(fileUpload());
@@ -85,6 +87,7 @@ app.post('/', (req, res) => {
     let imageFile = req.files.imageFile;
     let uploadPath = __dirname + "/upload/" + imageFile.name;
     imgData = imageFile.name;
+    //拡張子取得
     fileextension = path.extname(imageFile.name);
     console.log(fileextension);
     //サーバに画像ファイルを置く場所を指定
@@ -117,4 +120,4 @@ app.get('/home2', (req, res) => {
 //     res.send("<h1>Hello Wxpress!!");
 // })
 
-app.listen(PORT, () => console.log("サーバ起動中！！"));
+app.listen(PORT, () => console.log(`http://localhost:${PORT}にてサーバー起動中`));
