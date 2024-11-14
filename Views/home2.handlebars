@@ -1,1 +1,62 @@
-<h1>Home2 Template Engine!!</h1>
+<p>下記ローカルstyle css + bootstrap</p>
+<nav>
+  <h3>画像をアップロード</h3>
+      <ul class="list-group list-group-horizontal" id="nav">
+        <li class="list-group-item list-group-item-secondary flex-fill "><a href="./" class="align-middle">Home Page</a></li>
+        <li class="list-group-item list-group-item-secondary flex-fill"><a href="./home2" class="link-underline-light">Profile</a></li>
+        <li class="list-group-item list-group-item-secondary flex-fill"><a href="./about" class="link-underline-light">About Us</a></li>
+      </ul>
+</nav>
+<p>下記ローカルstyle css</p>
+<nav>
+  <h3>画像をアップロード</h3>
+    <ul>
+      <li><a href="#">MENU1</a></li>
+      <li><a href="#">MENU2</a></li>
+      <li><a href="#">MENU3</a></li>
+    </ul>
+</nav>
+
+
+
+
+
+<div>
+
+    <P>保存された画像が表示されます。↓↓</P>
+                    <p>{{memo}}</p>
+    {{#if img2}}
+    <img src="{{img}}" width="200" />
+    {{/if}}
+    {{#if img3}}
+    <a href="{{img}}" target="blank">{{img}}</a>
+    {{/if}}
+    {{#if img4}}
+    <p>データアップロード無し</p>
+    {{/if}}
+    <p>登録済データ</p>
+    <table class="table">
+          <thead>
+    <tr>
+      <th scope="col">メモ</th>
+      <th scope="col">投稿画像</th>
+    </tr>
+  </thead>
+    {{#each rows}}
+    <tr>
+        <td>
+        <p class="memo">{{this.memo}}</p>
+        </td>
+        <td>
+        {{#if this.ku}}
+        <a href="{{this.imageName}}" target="blank">{{this.imageName}}</a>
+        {{else}}
+        <img src="{{this.imageName}}" width="200" />
+        {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+    </table>
+
+
+</div>
